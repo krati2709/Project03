@@ -22,7 +22,7 @@
 <div class="footer">
 <center>
 
-<h5>&#169; RAYS Technologies</h5></center>
+<h5>&copy; RAYS Technologies</h5></center>
 </div>
 </body>
 
