@@ -111,7 +111,7 @@ public class CollegeCtl extends BaseCtl {
 		String op=request.getParameter("operation");
        long id=DataUtility.getLong(request.getParameter("id"));
   
-       CollegeModelInt model=ModelFactory.getInstance().getCollegeModel();
+       CollegeModelInt model = ModelFactory.getInstance().getCollegeModel();
        
        if (OP_SAVE.equalsIgnoreCase(op)||OP_UPDATE.equalsIgnoreCase(op)) {
     	   

@@ -199,7 +199,7 @@ i.css {
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-phone-square grey-text" style="font-size: 1rem;"></i> </div>
         </div>
-        <input type="text" class="form-control" id="defaultForm-email" maxlength="10" name="mobileNo"placeholder="mobile No" value="<%=DataUtility.getStringData(dto.getMobileNo())%>">
+        <input type="text" class="form-control" id="defaultForm-email" maxlength="10" name="mobileNo" placeholder="mobile No" value="<%=DataUtility.getStringData(dto.getMobileNo())%>">
       </div>
     </div>							
 	<font color="red" class="pl-sm-5"> <%=ServletUtility.getErrorMessage("mobileNo", request)%></font></br>

@@ -123,7 +123,8 @@ public class UserListCtl extends BaseCtl {
 		UserDTO dto = (UserDTO) populateDTO(request);
 		String op = DataUtility.getString(request.getParameter("operation"));
 
-// get the selected checkbox ids array for delete list
+        // get the selected checkbox ids array for delete list
+		
 		String[] ids = request.getParameterValues("ids");
 		UserModelInt model = ModelFactory.getInstance().getUserModel();
 		try {
