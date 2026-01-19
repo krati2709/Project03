@@ -169,6 +169,13 @@
                             <a class="dropdown-item" href="<%=ORSView.SUBJECT_CTL%>"><i class="fa fa-calculator"></i>Add Subject</a>
                             <a class="dropdown-item" href="<%=ORSView.SUBJECT_LIST_CTL%>"><i class="fa fa-sort-amount-down"></i>Subject List</a>
                         </div></li>
+    <!-- usercase -->
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
+                        href="#" data-toggle="dropdown" style="color:white;">Watchlist</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="<%=ORSView.WATCHLIST_CTL%>"><i class="fa fa-calculator"></i>Watchlist</a>
+                            <a class="dropdown-item" href="<%=ORSView.WATCHLIST_LIST_CTL%>"><i class="fa fa-sort-amount-down"></i>Watchlist List</a>
+                        </div></li>
 
                 <% } %>
 

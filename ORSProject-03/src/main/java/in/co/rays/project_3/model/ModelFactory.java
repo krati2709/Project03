@@ -165,4 +165,16 @@ public final class ModelFactory {
 
 		return facultyModel;
 	}
+	
+	public WatchlistModelInt getWatchlistModel() {
+		WatchlistModelInt watchlistModel = (WatchlistModelInt) modelCache.get("watchlistModel");
+		if (watchlistModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				watchlistModel = new WatchlistModelHibImp();
+			}
+			if ("JDBC".equals(DATABASE)) {
+			}
+		}
+		return watchlistModel;
+	}
 }

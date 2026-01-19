@@ -82,5 +82,14 @@ public interface ORSView {
 	public String MY_PROFILE_CTL = APP_CONTEXT + "/ctl/MyProfileCtl";
 	public String FORGET_PASSWORD_CTL = APP_CONTEXT + "/ForgetPasswordCtl";
 	public String MARKSHEET_MERIT_LIST_CTL = APP_CONTEXT + "/ctl/MarksheetMeritListCtl";
+	
+	
+	// USERCASE
+	public String WATCHLIST_CTL = APP_CONTEXT + "/ctl/WatchlistCtl";
+	public String WATCHLIST_LIST_CTL = APP_CONTEXT + "/ctl/WatchlistListCtl";
+	
+	public String WATCHLIST_VIEW = PAGE_FOLDER + "/WatchlistView.jsp";
+	public String WATCHLIST_LIST_VIEW = PAGE_FOLDER + "/WatchlistListView.jsp";
+	
 
 }
