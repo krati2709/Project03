@@ -87,7 +87,7 @@ public class RoleListCtl extends BaseCtl {
 			ServletUtility.forward(getView(), request, response);
 		} catch (ApplicationException e) {
 			log.error(e);
-			ServletUtility.handleException(e, request, response);
+			ServletUtility.handleListDBDown(getView(), dto, pageNo, pageSize, request, response);
 			return;
 		}
 		log.debug("RoleListCtl doGet End");
@@ -167,7 +167,7 @@ public class RoleListCtl extends BaseCtl {
 
 		} catch (ApplicationException e) {
 			log.error(e);
-			ServletUtility.handleException(e, request, response);
+			ServletUtility.handleListDBDown(getView(), dto, pageNo, pageSize, request, response);
 			return;
 		}
 		log.debug("RoleListCtl doPost End");

@@ -1,6 +1,7 @@
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -42,7 +43,8 @@ public class TimeTableCtl extends BaseCtl{
 			request.setAttribute("courseList", l);
 			request.setAttribute("subjectList", l1);
 		} catch (Exception e) {
-			log.error(e);
+			request.setAttribute("courseList", new ArrayList());
+			request.setAttribute("subjectList", new ArrayList());
 		}
 	}
 
@@ -114,7 +116,7 @@ public class TimeTableCtl extends BaseCtl{
 			} catch (Exception e) {
 				e.printStackTrace();
 				log.debug(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			}
 
@@ -182,7 +184,7 @@ public class TimeTableCtl extends BaseCtl{
 				return;
 			} catch (ApplicationException e) {
 				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			}
 

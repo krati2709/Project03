@@ -86,7 +86,7 @@ public class SubjectListCtl extends BaseCtl {
 
 		} catch (ApplicationException e) {
 			log.error(e);
-			ServletUtility.handleException(e, request, response);
+			ServletUtility.handleListDBDown(getView(), dto, pageNo, pageSize, request, response);
 			return;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -171,7 +171,7 @@ public class SubjectListCtl extends BaseCtl {
 		}
         catch (ApplicationException e) {
 			log.error(e);
-			ServletUtility.handleException(e, request, response);
+			ServletUtility.handleListDBDown(getView(), dto, pageNo, pageSize, request, response);
 			return;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

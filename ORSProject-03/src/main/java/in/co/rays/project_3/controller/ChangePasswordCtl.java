@@ -106,7 +106,7 @@ public class ChangePasswordCtl extends BaseCtl {
 				}
 			} catch (ApplicationException e) {
 				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				e.printStackTrace();
 				return;
 

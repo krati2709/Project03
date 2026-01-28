@@ -1,6 +1,7 @@
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class UserCtl extends BaseCtl {
 			request.setAttribute("roleList", list);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			request.setAttribute("roleList", new ArrayList());
 		}
 
 	}
@@ -74,7 +75,6 @@ public class UserCtl extends BaseCtl {
 		} else if (!DataValidator.isName(request.getParameter("firstName"))) {
 			request.setAttribute("lastName", "please enter correct Name");
 			pass = false;
-
 		}
 		if (DataValidator.isNull(request.getParameter("password"))) {
 			request.setAttribute("password", PropertyReader.getValue("error.require", "password"));
@@ -136,6 +136,7 @@ public class UserCtl extends BaseCtl {
 	}
 
 	protected BaseDTO populateDTO(HttpServletRequest request) {
+		
 		UserDTO dto = new UserDTO();
 
 		dto.setId(DataUtility.getLong(request.getParameter("id")));
@@ -160,7 +161,6 @@ public class UserCtl extends BaseCtl {
 		log.debug("UserRegistrationCtl Method populatedto Ended");
 
 		return dto;
-
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -179,7 +179,7 @@ public class UserCtl extends BaseCtl {
 			} catch (Exception e) {
 				e.printStackTrace();
 				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			}
 		}
@@ -206,7 +206,7 @@ public class UserCtl extends BaseCtl {
 						ServletUtility.setSuccessMessage("Data is successfully saved", request);
 					} catch (ApplicationException e) {
 						log.error(e);
-						ServletUtility.handleException(e, request, response);
+						ServletUtility.handleDBDown(getView(), request, response);
 						return;
 					} catch (DuplicateRecordException e) {
 						ServletUtility.setDto(dto, request);
@@ -218,7 +218,7 @@ public class UserCtl extends BaseCtl {
 
 			} catch (ApplicationException e) {
 				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			} catch (DuplicateRecordException e) {
 				ServletUtility.setDto(dto, request);
@@ -233,7 +233,7 @@ public class UserCtl extends BaseCtl {
 				return;
 			} catch (ApplicationException e) {
 				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			}
 

@@ -39,8 +39,7 @@ public class UserListCtl extends BaseCtl {
 			List list = model.list();
 			request.setAttribute("roleList", list);
 		} catch (Exception e) {
-			log.error(e);
-
+			request.setAttribute("roleList", new ArrayList());
 		}
 	}
 
@@ -76,7 +75,7 @@ public class UserListCtl extends BaseCtl {
 
 			/*
 			 * ArrayList<UserDTO> a = (ArrayList<UserDTO>) list;
-			 * 
+			 * 9)()(0
 			 * for (UserDTO udto1 : a) { System.out.println(udto1.getRoleId()); }
 			 */
 
@@ -97,12 +96,9 @@ public class UserListCtl extends BaseCtl {
 			ServletUtility.forward(getView(), request, response);
 		} catch (ApplicationException e) {
 			log.error(e);
-			ServletUtility.handleException(e, request, response);
+			ServletUtility.handleListDBDown(getView(), dto, pageNo, pageSize, request, response);
 			return;
-		} catch (Exception e) {
-// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
 		log.debug("UserListCtl doPOst End");
 	}
 

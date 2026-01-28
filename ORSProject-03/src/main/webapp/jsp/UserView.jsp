@@ -58,14 +58,14 @@ i.css {
 							<%
 							  long id=DataUtility.getLong(request.getParameter("id"));
 							
-							
+				
 								if (dto.getFirstName()!=null && dto.getId() > 0) {
 							%>
-							<h3 class="text-center default-text text-primary">ADD USER</h3>
+							<h3 class="text-center default-text text-primary">UPDATE USER</h3>
 							<%
 								} else {
 							%>
-							<h3 class="text-center default-text text-primary">UPDATE USER</h3>
+							<h3 class="text-center default-text text-primary">ADD USER</h3>
 							<%
 								}
 							%>

@@ -118,7 +118,7 @@ background-image: url('<%=ORSView.APP_CONTEXT%>/img/wallp.jpg');
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-building grey-text" style="font-size: 1rem;"></i> </div>
         </div>
-        <%=HTMLUtility.getList("collegeId", String.valueOf(dto.getCollegeId()), li)%>
+        <%=HTMLUtility.getList("college", String.valueOf(dto.getCollegeId()), li)%>
       </div></div>	
 	<font color="red" class="pl-sm-5">  <%=ServletUtility.getErrorMessage("collegeId", request)%></font></br>								
 									

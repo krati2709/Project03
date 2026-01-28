@@ -52,11 +52,8 @@ public class UserModelHibImp implements UserModelInt {
 			tx.commit();
 
 		} catch (HibernateException e) {
-			e.printStackTrace();
-			// TODO: handle exception
 			if (tx != null) {
 				tx.rollback();
-
 			}
 			throw new ApplicationException("Exception in User Add " + e.getMessage());
 		} finally {
@@ -245,16 +242,22 @@ public class UserModelHibImp implements UserModelInt {
 		// TODO Auto-generated method stub
 		Session session = null;
 		UserDTO dto = null;
-		session = HibDataSource.getSession();
-		Query q = session.createQuery("from UserDTO where login=? and password=?");
-		q.setString(0, login);
-		q.setString(1, password);
-		List list = q.list();
-		if (list.size() > 0) {
-			dto = (UserDTO) list.get(0);
-		} else {
-			dto = null;
+		
+		try {
+			
+			session = HibDataSource.getSession();
+			Query q = session.createQuery("from UserDTO where login=? and password=?");
+			q.setString(0, login);
+			q.setString(1, password);
+			List list = q.list();
+			if (list.size() > 0) {
+				dto = (UserDTO) list.get(0);
+			} else {
+				dto = null;
 
+			}			
+		} catch (Exception e) {
+			throw new ApplicationException("Database Server Down");
 		}
 		return dto;
 	}

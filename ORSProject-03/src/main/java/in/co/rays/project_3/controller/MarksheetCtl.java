@@ -1,6 +1,7 @@
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -43,8 +44,7 @@ public class MarksheetCtl extends BaseCtl {
 			request.setAttribute("studenList", li);
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			log.error(e);
+			request.setAttribute("studenList", new ArrayList());
 		}
 	}
 
@@ -150,7 +150,7 @@ public class MarksheetCtl extends BaseCtl {
 			} catch (ApplicationException e) {
 				e.printStackTrace();
 				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			}
 		}
@@ -186,7 +186,7 @@ public class MarksheetCtl extends BaseCtl {
 
 			} catch (ApplicationException e) {
 				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			} catch (DuplicateRecordException e) {
 				ServletUtility.setDto(dto, request);
@@ -202,7 +202,7 @@ public class MarksheetCtl extends BaseCtl {
 			} catch (ApplicationException e) {
 				System.out.println("in catch");
 				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			}
 

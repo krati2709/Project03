@@ -1,6 +1,7 @@
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+
 
 import in.co.rays.project_3.dto.BaseDTO;
 import in.co.rays.project_3.dto.MarksheetDTO;
@@ -41,7 +43,7 @@ public class MarksheetListCtl extends BaseCtl {
 			request.setAttribute("RollNo", list);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			request.setAttribute("RollNo", new ArrayList());
 		}
 	}
 
@@ -81,7 +83,7 @@ public class MarksheetListCtl extends BaseCtl {
 			next = model.search(dto, pageNo + 1, pageSize);
 		} catch (ApplicationException e) {
 			log.error(e);
-			ServletUtility.handleException(e, request, response);
+			ServletUtility.handleListDBDown(getView(), dto, pageNo, pageSize, request, response);
 			return;
 		}
 
@@ -187,7 +189,7 @@ public class MarksheetListCtl extends BaseCtl {
 			ServletUtility.forward(getView(), request, response);
 		} catch (ApplicationException e) {
 			log.error(e);
-			ServletUtility.handleException(e, request, response);
+			ServletUtility.handleListDBDown(getView(), dto, pageNo, pageSize, request, response);
 			return;
 		}
 

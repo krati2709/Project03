@@ -166,6 +166,9 @@ public final class ModelFactory {
 		return facultyModel;
 	}
 	
+	
+	//usecases
+	
 	public WatchlistModelInt getWatchlistModel() {
 		WatchlistModelInt watchlistModel = (WatchlistModelInt) modelCache.get("watchlistModel");
 		if (watchlistModel == null) {
@@ -176,5 +179,29 @@ public final class ModelFactory {
 			}
 		}
 		return watchlistModel;
+	}
+	
+	public EventModelInt getEventModel() {
+		EventModelInt eventModel = (EventModelInt) modelCache.get("eventModel");
+		if (eventModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				eventModel = new EventModelHibImpl();
+			}
+			if ("JDBC".equals(DATABASE)) {
+			}
+		}
+		return eventModel;
+	}
+	
+	public PaymentModelInt getPaymentModel() {
+		PaymentModelInt paymentModel = (PaymentModelInt) modelCache.get("eventModel");
+		if (paymentModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				paymentModel = new PaymentModelHibImpl();
+			}
+			if ("JDBC".equals(DATABASE)) {
+			}
+		}
+		return paymentModel;
 	}
 }

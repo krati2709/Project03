@@ -1,6 +1,7 @@
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -33,8 +34,8 @@ public class CourseListCtl extends BaseCtl {
 		try{
 			List list=model.list();
 			request.setAttribute("courseList", list);
-		}catch(Exception e){
-			log.error(e);
+		} catch(Exception e) {
+			request.setAttribute("courseList", new ArrayList());
 		}
 	}
 	
@@ -80,7 +81,7 @@ public class CourseListCtl extends BaseCtl {
 			ServletUtility.forward(getView(), request, response);
 		} catch (ApplicationException e) {
 			log.error(e);
-			ServletUtility.handleException(e, request, response);
+			ServletUtility.handleListDBDown(getView(), dto, pageNo, pageSize, request, response);
 			return;
 
 		} catch (Exception e) {
@@ -160,7 +161,7 @@ public class CourseListCtl extends BaseCtl {
 			ServletUtility.forward(getView(), request, response);
 		} catch (ApplicationException e) {
 			log.error(e);
-			ServletUtility.handleException(e, request, response);
+			ServletUtility.handleListDBDown(getView(), dto, pageNo, pageSize, request, response);
 			return;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

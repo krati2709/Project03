@@ -95,9 +95,8 @@ public class LoginCtl extends BaseCtl {
 				dto = model.findByPK(id);
 				ServletUtility.setDto(dto, request);
 			} catch (ApplicationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				ServletUtility.handleException(e, request, response);
+			
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			}
 
@@ -150,8 +149,7 @@ public class LoginCtl extends BaseCtl {
 				}
 
 			} catch (ApplicationException e) {
-				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			}
 

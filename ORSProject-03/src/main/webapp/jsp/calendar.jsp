@@ -36,12 +36,27 @@
 		$("#udate5").datepicker({
 			changeMonth : true,
 			changeYear : true,
-			yearRange : '2024:2025',
+			yearRange : '2026:2027',
 			dateFormat : 'dd/mm/yy',
 
 			// Disable for Sunday
 			beforeShowDay : disableSunday,
 			// Disable for back date
+			minDate : 0
+		});
+	});
+	
+	$(function() {
+		$("#udate6").datepicker({
+			changeMonth : true,
+			changeYear : true,
+			yearRange : '2026:2027',
+			dateFormat : 'dd/mm/yy',
+
+			// Disable for Sunday
+			beforeShowDay : disableSunday,
+			// Disable for back date
+			
 			minDate : 0
 		});
 	});

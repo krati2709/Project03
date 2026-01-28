@@ -83,7 +83,7 @@ public class WatchlistCtl extends BaseCtl{
 				dto = model.findByPK(id);
 				ServletUtility.setDto(dto, request);
 			} catch (ApplicationException e) {
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			}
 		}
@@ -116,9 +116,7 @@ public class WatchlistCtl extends BaseCtl{
 						model.add(dto);
 						ServletUtility.setSuccessMessage("Data is successfully saved", request);
 					} catch (Exception e) {
-						ServletUtility.setErrorMessage("ops! something went wrong", request);
-						ServletUtility.forward(getView(), request, response);
-//						ServletUtility.handleException(e, request, response);
+						ServletUtility.handleDBDown(getView(), request, response);
 						return;
 					}
 //					} catch (DuplicateRecordException e) {
@@ -129,7 +127,7 @@ public class WatchlistCtl extends BaseCtl{
 				}
 
 			} catch (ApplicationException e) {
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			} catch (DuplicateRecordException e) {
 				ServletUtility.setDto(dto, request);
@@ -147,7 +145,7 @@ public class WatchlistCtl extends BaseCtl{
 				return;
 
 			} catch (ApplicationException e) {
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			}
 

@@ -63,7 +63,7 @@ public class MarksheetMeritListCtl extends BaseCtl {
 			ServletUtility.forward(getView(), request, response);
 		} catch (Exception e) {
 			log.error(e);
-			ServletUtility.handleException(e, request, response);
+			ServletUtility.handleListDBDown(getView(), dto, pageNo, pageSize, request, response);
 			e.printStackTrace();
 		}
 		log.debug("Marksheet merit list do get  end");
@@ -102,7 +102,7 @@ public class MarksheetMeritListCtl extends BaseCtl {
 			ServletUtility.forward(ORSView.MARKSHEET_MERIT_LIST_VIEW, request, response);
 		} catch (ApplicationException e) {
 			log.error(e);
-			ServletUtility.handleException(e, request, response);
+			ServletUtility.handleListDBDown(getView(), dto, pageNo, pageSize, request, response);
 			return;
 		}
 		log.debug("Marksheet merit list dopost end");

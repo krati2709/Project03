@@ -88,7 +88,7 @@ public class FacultyListCtl extends BaseCtl {
 			ServletUtility.forward(getView(), request, response);
 		} catch (ApplicationException e) {
 			log.error(e);
-			ServletUtility.handleException(e, request, response);
+			ServletUtility.handleListDBDown(getView(), bean, pageNo, pageSize, request, response);
 			return;
 
 		} catch (Exception e) {
@@ -171,7 +171,7 @@ public class FacultyListCtl extends BaseCtl {
 
 		} catch (ApplicationException e) {
 			log.error(e);
-			ServletUtility.handleException(e, request, response);
+			ServletUtility.handleListDBDown(getView(), dto, pageNo, pageSize, request, response);
 			return;
 		} catch (Exception e) {
 			e.printStackTrace();

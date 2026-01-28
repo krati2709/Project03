@@ -1,6 +1,7 @@
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -39,7 +40,7 @@ public class StudentCtl extends BaseCtl {
 			List l = model.list();
 			request.setAttribute("collegeList", l);
 		} catch (ApplicationException e) {
-			log.error(e);
+			request.setAttribute("collegeList", new ArrayList());
 		}
 
 	}
@@ -86,8 +87,8 @@ public class StudentCtl extends BaseCtl {
 			request.setAttribute("emailId", PropertyReader.getValue("error.email", "Email "));
 			pass = false;
 		}
-		if (DataValidator.isNull(request.getParameter("collegeId"))) {
-			request.setAttribute("collegeId", PropertyReader.getValue("error.require", "College Name"));
+		if (DataValidator.isNull(request.getParameter("college"))) {
+			request.setAttribute("college", PropertyReader.getValue("error.require", "College Name"));
 			pass = false;
 		}
 		if (DataValidator.isNull(dob)) {
@@ -153,7 +154,7 @@ public class StudentCtl extends BaseCtl {
 				ServletUtility.setDto(dto, request);
 			} catch (ApplicationException e) {
 				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			}
 		}
@@ -192,7 +193,7 @@ public class StudentCtl extends BaseCtl {
 						ServletUtility.setSuccessMessage("Data is successfully saved", request);
 					} catch (ApplicationException e) {
 						log.error(e);
-						ServletUtility.handleException(e, request, response);
+						ServletUtility.handleDBDown(getView(), request, response);
 						return;
 					} catch (DuplicateRecordException e) {
 						ServletUtility.setDto(dto, request);
@@ -204,7 +205,7 @@ public class StudentCtl extends BaseCtl {
 
 			} catch (ApplicationException e) {
 				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			} catch (DuplicateRecordException e) {
 				ServletUtility.setDto(dto, request);
@@ -223,7 +224,7 @@ public class StudentCtl extends BaseCtl {
 
 			} catch (ApplicationException e) {
 				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			}
 

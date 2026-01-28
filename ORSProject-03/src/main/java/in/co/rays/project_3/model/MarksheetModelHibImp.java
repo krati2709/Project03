@@ -254,7 +254,6 @@ public class MarksheetModelHibImp implements MarksheetModelInt {
 			list = query.list();
 
 		} catch (Exception e) {
-
 			throw new ApplicationException("Exception in  marksheet list" + e.getMessage());
 		} finally {
 			session.close();

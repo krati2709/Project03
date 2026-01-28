@@ -91,5 +91,17 @@ public interface ORSView {
 	public String WATCHLIST_VIEW = PAGE_FOLDER + "/WatchlistView.jsp";
 	public String WATCHLIST_LIST_VIEW = PAGE_FOLDER + "/WatchlistListView.jsp";
 	
+	public String EVENT_CTL = APP_CONTEXT + "/ctl/EventCtl";
+	public String EVENT_LIST_CTL = APP_CONTEXT + "/ctl/EventListCtl";
+	
+	public String EVENT_VIEW = PAGE_FOLDER + "/EventView.jsp";
+	public String EVENT_LIST_VIEW = PAGE_FOLDER + "/EventListView.jsp";
+	
+	public String PAYMENT_CTL = APP_CONTEXT + "/ctl/PaymentCtl";
+	public String PAYMENT_LIST_CTL = APP_CONTEXT + "/ctl/PaymentListCtl";
+	
+	public String PAYMENT_VIEW = PAGE_FOLDER + "/PaymentView.jsp";
+	public String PAYMENT_LIST_VIEW = PAGE_FOLDER + "/PaymentListView.jsp";
+	
 
 }

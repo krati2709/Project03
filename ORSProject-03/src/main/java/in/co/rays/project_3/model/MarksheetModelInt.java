@@ -11,6 +11,7 @@ import in.co.rays.project_3.exception.DuplicateRecordException;
  * @author krati
  *
  */
+
 public interface MarksheetModelInt {
 public long add(MarksheetDTO dto)throws ApplicationException,DuplicateRecordException;
 public void delete(MarksheetDTO dto)throws ApplicationException;

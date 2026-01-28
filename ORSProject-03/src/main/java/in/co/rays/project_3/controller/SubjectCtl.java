@@ -1,6 +1,7 @@
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -38,8 +39,7 @@ public class SubjectCtl extends BaseCtl {
 			List list = model.list();
 			request.setAttribute("courseList", list);
 		} catch (Exception e) {
-			log.error(e);
-			e.printStackTrace();
+			request.setAttribute("courseList", new ArrayList());
 		}
 	}
 
@@ -98,7 +98,7 @@ public class SubjectCtl extends BaseCtl {
 		   }catch(Exception e){
 			   log.error(e);
 			  e.printStackTrace(); 
-			  ServletUtility.handleException(e, request, response);
+			  ServletUtility.handleDBDown(getView(), request, response);
 			  return;
 		   }
 	   }
@@ -133,18 +133,18 @@ public class SubjectCtl extends BaseCtl {
 						ServletUtility.setSuccessMessage("Data in successfully saved", request);
 					}catch (ApplicationException e) {
 						log.error(e);
-						ServletUtility.handleException(e, request, response);
+						ServletUtility.handleDBDown(getView(), request, response);
 						return;
 					} catch (DuplicateRecordException e) {
 						ServletUtility.setDto(dto, request);
-						ServletUtility.setErrorMessage("subject  already exists", request);
+						ServletUtility.setErrorMessage("subject already exists", request);
 					}
 
 				}
 				
 			}catch (ApplicationException e) {
 				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			} catch (Exception e) {
 				ServletUtility.setDto(dto, request);
@@ -157,7 +157,7 @@ public class SubjectCtl extends BaseCtl {
 				ServletUtility.redirect(getView(), request, response);
 			}catch (ApplicationException e) {
 				log.error(e);
-				ServletUtility.handleException(e, request, response);
+				ServletUtility.handleDBDown(getView(), request, response);
 				return;
 			}
 		}else if(OP_RESET.equalsIgnoreCase(op)){
