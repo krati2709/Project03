@@ -28,14 +28,15 @@ public class EventModelHibImpl implements EventModelInt {
 		    session.save(dto);
 		    tx.commit();
 		} catch (HibernateException e) {
-		    if (tx != null) {
-		        tx.rollback();
-		    }
-		    throw new ApplicationException("Exception in event Add");
+			e.printStackTrace();
+			// TODO: handle exception
+			if (tx != null) {
+				tx.rollback();
+
+			}
+			throw new ApplicationException("Exception in Role Add " + e.getMessage());
 		} finally {
-		    if (session != null) {
-		        session.close();
-		    }
+			session.close();
 		}
 
 	}
