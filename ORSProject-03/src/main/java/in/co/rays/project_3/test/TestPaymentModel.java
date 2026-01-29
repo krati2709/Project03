@@ -53,11 +53,11 @@ public class TestPaymentModel {
 		
 	}
 
-	private static void testdelete() throws ApplicationException {
-	
-		model.delete(2L);
-		System.out.println("data deleted successfully");
-	}
+//	private static void testdelete() throws ApplicationException {
+//	
+//		model.delete(2L);
+//		System.out.println("data deleted successfully");
+//	}
 
 	private static void testUpdate() throws ApplicationException, DuplicateRecordException, ParseException {
 		PaymentDTO dto = model.findByPk(1L);

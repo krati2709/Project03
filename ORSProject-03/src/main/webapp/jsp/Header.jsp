@@ -183,6 +183,13 @@
                             <a class="dropdown-item" href="<%=ORSView.EVENT_CTL%>"><i class="fa fa-calculator"></i>Event</a>
                             <a class="dropdown-item" href="<%=ORSView.EVENT_LIST_CTL%>"><i class="fa fa-sort-amount-down"></i>Event List</a>
                         </div></li>
+                        
+                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
+                        href="#" data-toggle="dropdown" style="color:white;">Payment</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="<%=ORSView.PAYMENT_CTL%>"><i class="fa fa-calculator"></i>Add payment</a>
+                            <a class="dropdown-item" href="<%=ORSView.PAYMENT_LIST_CTL%>"><i class="fa fa-sort-amount-down"></i>Payment List</a>
+                        </div></li>
 
                 <% } %>
 

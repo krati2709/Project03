@@ -23,31 +23,32 @@ public class PaymentModelHibImpl implements PaymentModelInt {
 			throw new DuplicateRecordException("payment id already exists");
 		}
 
-		Session session = null;
+		Session session = HibDataSource.getSession();
 		Transaction tx = null;
 		try {
-			session = HibDataSource.getSession();
+
+			int pk = 0;
 			tx = session.beginTransaction();
+
 			session.save(dto);
+
 			tx.commit();
+
 		} catch (HibernateException e) {
 			if (tx != null) {
 				tx.rollback();
 			}
-			throw new ApplicationException("Exception in payment Add");
+			throw new ApplicationException("Exception in event Add " + e.getMessage());
 		} finally {
-			if (session != null) {
-				session.close();
-			}
+			session.close();
 		}
 	}
 
 	@Override
-	public void delete(long id) throws ApplicationException {
+	public void delete(PaymentDTO dto) throws ApplicationException {
 		// TODO Auto-generated method stub
 		Session session = null;
 		Transaction tx = null;
-		PaymentDTO dto = findByPk(id);
 		try {
 			session = HibDataSource.getSession();
 			tx = session.beginTransaction();

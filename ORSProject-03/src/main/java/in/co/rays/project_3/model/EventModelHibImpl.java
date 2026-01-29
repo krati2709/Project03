@@ -10,6 +10,7 @@ import org.hibernate.criterion.Restrictions;
 
 import in.co.rays.project_3.dto.CourseDTO;
 import in.co.rays.project_3.dto.EventDTO;
+import in.co.rays.project_3.dto.UserDTO;
 import in.co.rays.project_3.exception.ApplicationException;
 import in.co.rays.project_3.exception.DuplicateRecordException;
 import in.co.rays.project_3.util.HibDataSource;
@@ -20,21 +21,27 @@ public class EventModelHibImpl implements EventModelInt {
 	public void add(EventDTO dto) throws ApplicationException, DuplicateRecordException {
 		
 		
-		Session session = null;
+		EventDTO existDto = null;
+		existDto = findByName(dto.getEventName());
+		if (existDto != null) {
+			throw new DuplicateRecordException("Event name already exists already exist");
+		}
+		Session session = HibDataSource.getSession();
 		Transaction tx = null;
 		try {
-		    session = HibDataSource.getSession();
-		    tx = session.beginTransaction();
-		    session.save(dto);
-		    tx.commit();
+
+			int pk = 0;
+			tx = session.beginTransaction();
+
+			session.save(dto);
+
+			tx.commit();
+
 		} catch (HibernateException e) {
-			e.printStackTrace();
-			// TODO: handle exception
 			if (tx != null) {
 				tx.rollback();
-
 			}
-			throw new ApplicationException("Exception in Role Add " + e.getMessage());
+			throw new ApplicationException("Exception in event Add " + e.getMessage());
 		} finally {
 			session.close();
 		}

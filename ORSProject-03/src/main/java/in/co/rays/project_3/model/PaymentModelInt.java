@@ -9,7 +9,7 @@ import in.co.rays.project_3.exception.DuplicateRecordException;
 public interface PaymentModelInt {
 
 	public void add(PaymentDTO dto)throws ApplicationException,DuplicateRecordException;
-	public void delete(long id) throws ApplicationException;
+	public void delete(PaymentDTO dto) throws ApplicationException;
 	public void update(PaymentDTO dto)throws ApplicationException,DuplicateRecordException;
 	public List list()throws ApplicationException;
 	public List search(PaymentDTO dto,int pageNo,int pageSize)throws ApplicationException;

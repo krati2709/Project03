@@ -9,7 +9,7 @@ public class PaymentDTO extends BaseDTO{
 	private String paymentStatus;
 
 
-	public long getPaymentId() {
+	public Long getPaymentId() {
 		return paymentId;
 	}
 
@@ -25,7 +25,7 @@ public class PaymentDTO extends BaseDTO{
 		this.payerName = payerName;
 	}
 
-	public long getAmount() {
+	public Long getAmount() {
 		return amount;
 	}
 
