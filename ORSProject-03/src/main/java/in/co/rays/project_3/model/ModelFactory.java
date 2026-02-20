@@ -194,7 +194,7 @@ public final class ModelFactory {
 	}
 	
 	public PaymentModelInt getPaymentModel() {
-		PaymentModelInt paymentModel = (PaymentModelInt) modelCache.get("eventModel");
+		PaymentModelInt paymentModel = (PaymentModelInt) modelCache.get("paymentModel");
 		if (paymentModel == null) {
 			if ("Hibernate".equals(DATABASE)) {
 				paymentModel = new PaymentModelHibImpl();
@@ -203,5 +203,61 @@ public final class ModelFactory {
 			}
 		}
 		return paymentModel;
+	}
+	
+	public LocationModelInt getLocationModel() {
+		LocationModelInt locationModel = (LocationModelInt) modelCache.get("locationModel");
+		if (locationModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				locationModel = new LocationModelHibImpl();
+			}
+			if ("JDBC".equals(DATABASE)) {
+			}
+		}
+		return locationModel;
+	}
+	
+	public ProfileModelInt getProfileModel() {
+		ProfileModelInt ProfileModel = (ProfileModelInt) modelCache.get("ProfileModel");
+		if (ProfileModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				ProfileModel = new ProfileModelHibImpl();
+			}
+			if ("JDBC".equals(DATABASE)) {
+			}
+		}
+		return ProfileModel;
+	}
+	
+	public InquiryModelInt getInquiryModel() {
+
+		InquiryModelInt inquiryModel = (InquiryModelInt) modelCache.get("inquiryModel");
+		if (inquiryModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				inquiryModel = new InquiryModelHibImp();
+			}
+			modelCache.put("inquiryModel", inquiryModel);
+		}
+		return inquiryModel;
+	}
+	
+	public TaskModelInt getTaskModel() {
+	    TaskModelInt taskModel =
+	            (TaskModelInt) modelCache.get("taskModel");
+
+	    if (taskModel == null) {
+
+	        if ("Hibernate".equals(DATABASE)) {
+	            taskModel = new TaskModelHibImpl();
+	        }
+
+	        if ("JDBC".equals(DATABASE)) {
+	            // taskStatusModel = new TaskStatusModelJdbcImpl();
+	        }
+
+	        modelCache.put("taskModel", taskModel);
+	    }
+
+	    return taskModel;
 	}
 }

@@ -5,9 +5,10 @@
 <hibernate-configuration>
 
 	<session-factory>
-		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>  
-		<!--  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/project03</property> -->
-		<property name="hibernate.connection.url">jdbc:mysql://mysql:3306/project03</property> 
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/project03</property>
+		<!-- <property name="hibernate.connection.url">jdbc:mysql://mysql:3306/project03</property> -->
+
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">root</property>
 
@@ -57,11 +58,19 @@
 		<!-- usecase -->
 		<mapping
 			resource="in/co/rays/project_3/hbm/WatchlistDTO.hbm.xml" />
+		<mapping
+		    resource="in/co/rays/project_3/hbm/EventDTO.hbm.xml" />
+		<mapping
+			resource="in/co/rays/project_3/hbm/PaymentDTO.hbm.xml" />
+		<mapping
+			resource="in/co/rays/project_3/hbm/LocationDTO.hbm.xml" />
+		<mapping
+			resource="in/co/rays/project_3/hbm/ProfileDTO.hbm.xml" />
+		<mapping
+			resource="in/co/rays/project_3/hbm/InquiryDTO.hbm.xml" />
+		<mapping
+			resource="in/co/rays/project_3/hbm/TaskDTO.hbm.xml" />
 
-		<mapping resource="in/co/rays/project_3/hbm/EventDTO.hbm.xml" />
-
-		<mapping resource="in/co/rays/project_3/hbm/PaymentDTO.hbm.xml" />
-		
 
 
 	</session-factory>

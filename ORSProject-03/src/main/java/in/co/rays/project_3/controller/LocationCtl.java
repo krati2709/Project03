@@ -1,7 +1,6 @@
 package in.co.rays.project_3.controller;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,66 +8,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import in.co.rays.project_3.dto.BaseDTO;
-import in.co.rays.project_3.dto.EventDTO;
-import in.co.rays.project_3.dto.StudentDTO;
+import in.co.rays.project_3.dto.LocationDTO;
 import in.co.rays.project_3.exception.ApplicationException;
 import in.co.rays.project_3.exception.DuplicateRecordException;
-import in.co.rays.project_3.model.EventModelInt;
+import in.co.rays.project_3.model.LocationModelInt;
 import in.co.rays.project_3.model.ModelFactory;
-import in.co.rays.project_3.model.StudentModelInt;
 import in.co.rays.project_3.util.DataUtility;
 import in.co.rays.project_3.util.DataValidator;
 import in.co.rays.project_3.util.PropertyReader;
 import in.co.rays.project_3.util.ServletUtility;
 
-
-@WebServlet(urlPatterns={"/ctl/EventCtl"})
-public class EventCtl extends BaseCtl{
-	
-	@Override
-	protected void preload(HttpServletRequest request) {
-		
-		
-		HashMap eventType = new HashMap();
-		eventType.put("seminar", "seminar");
-		eventType.put("workshop", "workshop");
-		eventType.put("fest", "fest");
-		eventType.put("sports", "sports");
-		eventType.put("cultural", "cultural");
-		request.setAttribute("event", eventType);
-		
-		
-		HashMap category = new HashMap();
-		category.put("technical", "technical");
-		category.put("non-technical", "non-technical");
-		category.put("academic", "academic");
-		category.put("extra curricular", "extra curricular");
-		request.setAttribute("categoryL", category);
-		
-	}
+@WebServlet(urlPatterns={"/ctl/LocationCtl"})
+public class LocationCtl extends BaseCtl {
 	
 	@Override
 	protected boolean validate(HttpServletRequest request) {
 		
 		boolean pass = true;
-		
-		if (DataValidator.isNull(request.getParameter("eventName"))) {
-			request.setAttribute("eventName", PropertyReader.getValue("error.require", "Event Name"));
+		if (DataValidator.isNull(request.getParameter("city"))) {
+			request.setAttribute("city", PropertyReader.getValue("error.require", "city"));
 			pass = false;
 		}
-		if (DataValidator.isNull(request.getParameter("eventDate"))) {
-			request.setAttribute("eventDate", PropertyReader.getValue("error.require", "date"));
-			pass = false;
-		} else if (!DataValidator.isDate(request.getParameter("eventDate"))) {
-			request.setAttribute("dob", PropertyReader.getValue("error.date", "Date Of Birth"));
+		if (DataValidator.isNull(request.getParameter("country"))) {
+			request.setAttribute("country", PropertyReader.getValue("error.require", "country"));
 			pass = false;
 		}
-		if (DataValidator.isNull(request.getParameter("eventType"))) {
-			request.setAttribute("eventType", PropertyReader.getValue("error.require", "Event Type"));
+		if (DataValidator.isNull(request.getParameter("state"))) {
+			request.setAttribute("state", PropertyReader.getValue("error.require", "state"));
 			pass = false;
 		}
-		if (DataValidator.isNull(request.getParameter("category"))) {
-			request.setAttribute("category", PropertyReader.getValue("error.require", "category"));
+		if (DataValidator.isNull(request.getParameter("status"))) {
+			request.setAttribute("status", PropertyReader.getValue("error.require", "status"));
 			pass = false;
 		}
 		
@@ -78,26 +48,27 @@ public class EventCtl extends BaseCtl{
 	@Override
 	protected BaseDTO populateDTO(HttpServletRequest request) {
 		
-		EventDTO dto = new EventDTO();
+		LocationDTO dto = new LocationDTO();
 		dto.setId(DataUtility.getLong(request.getParameter("id")));
-		dto.setEventName(DataUtility.getString(request.getParameter("eventName")));
-		dto.setEventDate(DataUtility.getDate(request.getParameter("eventDate")));
-		dto.setEventType(DataUtility.getString(request.getParameter("eventType")));
-		dto.setCategory(DataUtility.getString(request.getParameter("category")));
-		
+		dto.setCity(DataUtility.getString(request.getParameter("city")));
+		dto.setState(DataUtility.getString(request.getParameter("state")));
+		dto.setCountry(DataUtility.getString(request.getParameter("country")));
+		dto.setStatus(DataUtility.getString(request.getParameter("status")));
 		populateBean(dto, request);
 		
 		return dto;
 	}
 	
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String op = DataUtility.getString(request.getParameter("operation"));
 		long id = DataUtility.getLong(request.getParameter("id"));
 
-		EventModelInt model = ModelFactory.getInstance().getEventModel();
+		LocationModelInt model = ModelFactory.getInstance().getLocationModel();
 		if (id > 0 || op != null) {
-			EventDTO dto;
+			LocationDTO dto;
 			try {
 				dto = model.findByPK(id);
 				ServletUtility.setDto(dto, request);
@@ -115,12 +86,12 @@ public class EventCtl extends BaseCtl{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String op = DataUtility.getString(request.getParameter("operation"));
-		EventModelInt model = ModelFactory.getInstance().getEventModel();
+		LocationModelInt model = ModelFactory.getInstance().getLocationModel();
 
 		long id = DataUtility.getLong(request.getParameter("id"));
 
 		if (OP_SAVE.equalsIgnoreCase(op) || OP_UPDATE.equalsIgnoreCase(op)) {
-			EventDTO dto = (EventDTO) populateDTO(request);
+			LocationDTO dto = (LocationDTO) populateDTO(request);
 
 			try {
 				if (id > 0) {
@@ -155,10 +126,10 @@ public class EventCtl extends BaseCtl{
 
 		else if (OP_DELETE.equalsIgnoreCase(op)) {
 
-			EventDTO dto = (EventDTO) populateDTO(request);
+			LocationDTO dto = (LocationDTO) populateDTO(request);
 			try {
 				model.delete(dto);
-				ServletUtility.redirect(ORSView.EVENT_LIST_CTL, request, response);
+				ServletUtility.redirect(ORSView.LOCATION_LIST_CTL, request, response);
 				return;
 
 			} catch (ApplicationException e) {
@@ -168,12 +139,12 @@ public class EventCtl extends BaseCtl{
 
 		} else if (OP_CANCEL.equalsIgnoreCase(op)) {
 
-			ServletUtility.redirect(ORSView.EVENT_LIST_CTL, request, response);
+			ServletUtility.redirect(ORSView.LOCATION_LIST_CTL, request, response);
 			return;
 
 		} else if (OP_RESET.equalsIgnoreCase(op)) {
 
-			ServletUtility.redirect(ORSView.EVENT_CTL, request, response);
+			ServletUtility.redirect(ORSView.LOCATION_CTL, request, response);
 			return;
 
 		}
@@ -182,7 +153,8 @@ public class EventCtl extends BaseCtl{
 
 	@Override
 	protected String getView() {
-		return ORSView.EVENT_VIEW;
+		// TODO Auto-generated method stub
+		return ORSView.LOCATION_VIEW;
 	}
 
 }

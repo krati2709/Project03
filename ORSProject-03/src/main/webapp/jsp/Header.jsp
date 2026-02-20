@@ -190,6 +190,20 @@
                             <a class="dropdown-item" href="<%=ORSView.PAYMENT_CTL%>"><i class="fa fa-calculator"></i>Add payment</a>
                             <a class="dropdown-item" href="<%=ORSView.PAYMENT_LIST_CTL%>"><i class="fa fa-sort-amount-down"></i>Payment List</a>
                         </div></li>
+                        
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
+                        href="#" data-toggle="dropdown" style="color:white;">Location</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="<%=ORSView.LOCATION_CTL%>"><i class="fa fa-calculator"></i>Add location</a>
+                            <a class="dropdown-item" href="<%=ORSView.LOCATION_LIST_CTL%>"><i class="fa fa-sort-amount-down"></i>location List</a>
+                        </div></li>
+                          
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
+                        href="#" data-toggle="dropdown" style="color:white;">Profile</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="<%=ORSView.PROFILE_CTL%>"><i class="fa fa-calculator"></i>Add profile</a>
+                            <a class="dropdown-item" href="<%=ORSView.PROFILE_LIST_CTL%>"><i class="fa fa-sort-amount-down"></i>profile List</a>
+                        </div></li>
 
                 <% } %>
 

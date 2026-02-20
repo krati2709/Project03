@@ -40,7 +40,7 @@ public class UserModelTest {
 	public static void searchTest() throws ApplicationException {
 		// TODO Auto-generated method stub
 		UserDTO dto = new UserDTO();
-       dto.setId(2L);
+        dto.setId(2L);
 		//dto.setFirstName("Mayankshi");
 		// dto.setLastName("agrawal");
 		// dto.setLogin("login");

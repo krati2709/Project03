@@ -103,5 +103,30 @@ public interface ORSView {
 	public String PAYMENT_VIEW = PAGE_FOLDER + "/PaymentView.jsp";
 	public String PAYMENT_LIST_VIEW = PAGE_FOLDER + "/PaymentListView.jsp";
 	
+	public String LOCATION_CTL = APP_CONTEXT + "/ctl/LocationCtl";
+	public String LOCATION_LIST_CTL = APP_CONTEXT + "/ctl/LocationListCtl";
+	
+	public String LOCATION_VIEW = PAGE_FOLDER + "/LocationView.jsp";
+	public String LOCATION_LIST_VIEW = PAGE_FOLDER + "/LocationListView.jsp";
+	
+	public String PROFILE_CTL = APP_CONTEXT + "/ctl/ProfileCtl";
+	public String PROFILE_LIST_CTL = APP_CONTEXT + "/ctl/ProfileListCtl";
+	
+	public String PROFILE_VIEW = PAGE_FOLDER + "/ProfileView.jsp";
+	public String PROFILE_LIST_VIEW = PAGE_FOLDER + "/ProfileListView.jsp";
+	
+	public String INQUIRY_CTL = APP_CONTEXT + "/ctl/InquiryCtl";
+	public String INQUIRY_LIST_CTL = APP_CONTEXT + "/ctl/InquiryListCtl";
+
+	public String INQUIRY_VIEW = PAGE_FOLDER + "/InquiryView.jsp";
+	public String INQUIRY_LIST_VIEW = PAGE_FOLDER + "/InquiryListView.jsp";
+	
+	public String TASK_CTL = APP_CONTEXT + "/ctl/TaskCtl";
+	public String TASK_LIST_CTL = APP_CONTEXT + "/ctl/TaskListCtl";
+
+	public String TASK_VIEW = PAGE_FOLDER + "/TaskView.jsp";
+	public String TASK_LIST_VIEW = PAGE_FOLDER + "/TaskListView.jsp";
+
+	
 
 }
