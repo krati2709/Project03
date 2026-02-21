@@ -70,6 +70,9 @@
 			resource="in/co/rays/project_3/hbm/InquiryDTO.hbm.xml" />
 		<mapping
 			resource="in/co/rays/project_3/hbm/TaskDTO.hbm.xml" />
+		<mapping
+			resource="in/co/rays/project_3/hbm/MaintenanceDTO.hbm.xml" />
+			
 
 
 

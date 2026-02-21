@@ -252,12 +252,32 @@ public final class ModelFactory {
 	        }
 
 	        if ("JDBC".equals(DATABASE)) {
-	            // taskStatusModel = new TaskStatusModelJdbcImpl();
+	           
 	        }
 
 	        modelCache.put("taskModel", taskModel);
 	    }
 
 	    return taskModel;
+	}
+	
+	public MaintenanceModelInt getMaintenanceModel() {
+
+	    MaintenanceModelInt maintenanceModel =
+	            (MaintenanceModelInt) modelCache.get("maintenanceModel");
+
+	    if (maintenanceModel == null) {
+
+	        if ("Hibernate".equals(DATABASE)) {
+	            maintenanceModel = new MaintenanceModelHibImpl();
+	        }
+
+	        if ("JDBC".equals(DATABASE)) {
+	        }
+
+	        modelCache.put("maintenanceModel", maintenanceModel);
+	    }
+
+	    return maintenanceModel;
 	}
 }

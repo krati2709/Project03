@@ -126,6 +126,12 @@ public interface ORSView {
 
 	public String TASK_VIEW = PAGE_FOLDER + "/TaskView.jsp";
 	public String TASK_LIST_VIEW = PAGE_FOLDER + "/TaskListView.jsp";
+	
+	public String MAINTENANCE_CTL = APP_CONTEXT + "/ctl/MaintenanceCtl";
+	public String MAINTENANCE_LIST_CTL = APP_CONTEXT + "/ctl/MaintenanceListCtl";
+
+	public String MAINTENANCE_VIEW = PAGE_FOLDER + "/MaintenanceView.jsp";
+	public String MAINTENANCE_LIST_VIEW = PAGE_FOLDER + "/MaintenanceListView.jsp";
 
 	
 
