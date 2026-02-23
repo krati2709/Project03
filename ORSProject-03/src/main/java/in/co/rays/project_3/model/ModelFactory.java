@@ -280,4 +280,20 @@ public final class ModelFactory {
 
 	    return maintenanceModel;
 	}
+	
+	public ClientModelInt getClientModel() {
+		ClientModelInt clientModel = (ClientModelInt) modelCache.get("clientModel");
+
+		if (clientModel == null) {
+
+			if ("Hibernate".equals(DATABASE)) {
+				clientModel = new ClientModelHibImpl();
+			}
+
+			if ("JDBC".equals(DATABASE)) {
+			}
+		}
+		return clientModel;
+	}
+	
 }

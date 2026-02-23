@@ -132,6 +132,12 @@ public interface ORSView {
 
 	public String MAINTENANCE_VIEW = PAGE_FOLDER + "/MaintenanceView.jsp";
 	public String MAINTENANCE_LIST_VIEW = PAGE_FOLDER + "/MaintenanceListView.jsp";
+	
+	public String CLIENT_CTL = APP_CONTEXT + "/ctl/ClientCtl";
+	public String CLIENT_LIST_CTL = APP_CONTEXT + "/ctl/ClientListCtl";
+
+	public String CLIENT_VIEW = PAGE_FOLDER + "/ClientView.jsp";
+	public String CLIENT_LIST_VIEW = PAGE_FOLDER + "/ClientListView.jsp";
 
 	
 
