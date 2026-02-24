@@ -139,6 +139,11 @@ public interface ORSView {
 	public String CLIENT_VIEW = PAGE_FOLDER + "/ClientView.jsp";
 	public String CLIENT_LIST_VIEW = PAGE_FOLDER + "/ClientListView.jsp";
 
+	public String SHIFT_CTL = APP_CONTEXT + "/ctl/ShiftCtl";
+	public String SHIFT_LIST_CTL = APP_CONTEXT + "/ctl/ShiftListCtl";
+
+	public String SHIFT_VIEW = PAGE_FOLDER + "/ShiftView.jsp";
+	public String SHIFT_LIST_VIEW = PAGE_FOLDER + "/ShiftListView.jsp";
 	
 
 }

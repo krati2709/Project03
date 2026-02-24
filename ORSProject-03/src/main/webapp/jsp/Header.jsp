@@ -252,7 +252,7 @@
 						</a>
 					</div></li> --%>
 
-				<li class="nav-item dropdown"><a
+				<%-- <li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
 					style="color: white;">Client</a>
 
@@ -262,7 +262,20 @@
 						</a> <a class="dropdown-item" href="<%=ORSView.CLIENT_LIST_CTL%>">
 							<i class="fa fa-sort-amount-down"></i> Client List
 						</a>
+					</div></li> --%>
+					<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
+					style="color: white;">shift</a>
+
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="<%=ORSView.SHIFT_CTL%>">
+							<i class="fa fa-calculator"></i> Add shift
+						</a> <a class="dropdown-item" href="<%=ORSView.SHIFT_LIST_CTL%>">
+							<i class="fa fa-sort-amount-down"></i> shift List
+						</a>
 					</div></li>
+					
+					
 
 				<%
 					}
