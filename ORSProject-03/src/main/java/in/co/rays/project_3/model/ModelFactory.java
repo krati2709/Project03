@@ -296,4 +296,20 @@ public final class ModelFactory {
 		return clientModel;
 	}
 	
+	public EnrollmentModelInt getEnrollmentModel() {
+		EnrollmentModelInt enrollmentModel = 
+				(EnrollmentModelInt) modelCache.get("enrollmentModel");
+
+		if (enrollmentModel == null) {
+			if ("Hibernate".equals(DATABASE)) {
+				enrollmentModel = new EnrollmentModelHibImpl();
+			}
+			if ("JDBC".equals(DATABASE)) {
+				// Add JDBC implementation here if needed
+			}
+		}
+
+		return enrollmentModel;
+	}
+	
 }

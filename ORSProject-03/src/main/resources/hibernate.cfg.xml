@@ -76,6 +76,9 @@
 			resource="in/co/rays/project_3/hbm/ClientDTO.hbm.xml" />
 		<mapping
 			resource="in/co/rays/project_3/hbm/ShiftDTO.hbm.xml" />
+		<mapping
+			resource="in/co/rays/project_3/hbm/EnrollmentDTO.hbm.xml" />
+			
 			
 			
 			

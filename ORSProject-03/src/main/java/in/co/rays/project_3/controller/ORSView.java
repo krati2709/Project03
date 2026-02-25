@@ -145,5 +145,10 @@ public interface ORSView {
 	public String SHIFT_VIEW = PAGE_FOLDER + "/ShiftView.jsp";
 	public String SHIFT_LIST_VIEW = PAGE_FOLDER + "/ShiftListView.jsp";
 	
+	public String ENROLLMENT_CTL = APP_CONTEXT + "/ctl/EnrollmentCtl";
+	public String ENROLLMENT_LIST_CTL = APP_CONTEXT + "/ctl/EnrollmentListCtl";
 
+	public String ENROLLMENT_VIEW = PAGE_FOLDER + "/EnrollmentView.jsp";
+	public String ENROLLMENT_LIST_VIEW = PAGE_FOLDER + "/EnrollmentListView.jsp";
+	
 }
