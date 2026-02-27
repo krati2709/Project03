@@ -106,8 +106,8 @@
 
 						<div class="col-sm-2"></div>
 						<div class="col-sm-2">
-							<input type="text" name="eventName" placeholder="Enter Event Name"
-								class="form-control"
+							<input type="text" name="eventName"
+								placeholder="Enter Event Name" class="form-control"
 								value="<%=ServletUtility.getParameter("eventName", request)%>">
 						</div>
 						&emsp;
@@ -125,14 +125,10 @@
 						</div>
 						<div class="col-sm-3"></div>
 
-						
+
 
 						<div class="col-sm-2"></div>
 					</div>
-
-
-
-
 
 
 

@@ -312,4 +312,16 @@ public final class ModelFactory {
 		return enrollmentModel;
 	}
 	
+	public EventRegistrationModelInt getEventRegistrationModel() {
+	    EventRegistrationModelInt eventRegistrationModel = (EventRegistrationModelInt) modelCache.get("eventRegistrationModel");
+	    if (eventRegistrationModel == null) {
+	        if ("Hibernate".equals(DATABASE)) {
+	            eventRegistrationModel = new EventRegistrationModelHibImpl();
+	        }
+	        if ("JDBC".equals(DATABASE)) {
+	        }
+	    }
+	    return eventRegistrationModel;
+	}
+	
 }

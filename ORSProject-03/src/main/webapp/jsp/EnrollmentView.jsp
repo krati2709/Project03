@@ -24,144 +24,136 @@
 
 <body class="hm">
 
-<div class="header">
-	<%@include file="Header.jsp"%>
-</div>
+	<div class="header">
+		<%@include file="Header.jsp"%>
+	</div>
 
-<main>
-<form action="<%=ORSView.ENROLLMENT_CTL%>" method="post">
+	<main>
+	<form action="<%=ORSView.ENROLLMENT_CTL%>" method="post">
 
-<div class="row pt-3 pb-3">
-<div class="col-md-4 mb-4"></div>
-<div class="col-md-4 mb-4">
+		<div class="row pt-3 pb-3">
+			<div class="col-md-4 mb-4"></div>
+			<div class="col-md-4 mb-4">
 
-<jsp:useBean id="dto"
-	class="in.co.rays.project_3.dto.EnrollmentDTO"
-	scope="request"></jsp:useBean>
+				<jsp:useBean id="dto" class="in.co.rays.project_3.dto.EnrollmentDTO"
+					scope="request"></jsp:useBean>
 
-<div class="card">
-<div class="card-body">
+				<div class="card">
+					<div class="card-body">
 
-<%
-	long id = DataUtility.getLong(request.getParameter("id"));
-	if (dto.getId() != null && dto.getId() > 0) {
-%>
-<h3 class="text-center text-primary">Update Enrollment</h3>
-<%
-	} else {
-%>
-<h3 class="text-center text-primary">Add Enrollment</h3>
-<%
-	}
-%>
+						<%
+							long id = DataUtility.getLong(request.getParameter("id"));
+							if (dto.getId() != null && dto.getId() > 0) {
+						%>
+						<h3 class="text-center text-primary">Update Enrollment</h3>
+						<%
+							} else {
+						%>
+						<h3 class="text-center text-primary">Add Enrollment</h3>
+						<%
+							}
+						%>
 
-<!-- Success Message -->
-<%
-	if (!ServletUtility.getSuccessMessage(request).equals("")) {
-%>
-<div class="alert alert-success alert-dismissible">
-<button type="button" class="close" data-dismiss="alert">&times;</button>
-<%=ServletUtility.getSuccessMessage(request)%>
-</div>
-<%
-	}
-%>
+						<!-- Success Message -->
+						<%
+							if (!ServletUtility.getSuccessMessage(request).equals("")) {
+						%>
+						<div class="alert alert-success alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<%=ServletUtility.getSuccessMessage(request)%>
+						</div>
+						<%
+							}
+						%>
 
-<!-- Error Message -->
-<%
-	if (!ServletUtility.getErrorMessage(request).equals("")) {
-%>
-<div class="alert alert-danger alert-dismissible">
-<button type="button" class="close" data-dismiss="alert">&times;</button>
-<%=ServletUtility.getErrorMessage(request)%>
-</div>
-<%
-	}
-%>
+						<!-- Error Message -->
+						<%
+							if (!ServletUtility.getErrorMessage(request).equals("")) {
+						%>
+						<div class="alert alert-danger alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<%=ServletUtility.getErrorMessage(request)%>
+						</div>
+						<%
+							}
+						%>
 
-<input type="hidden" name="id" value="<%=dto.getId()%>">
-<input type="hidden" name="createdBy" value="<%=dto.getCreatedBy()%>">
-<input type="hidden" name="modifiedBy" value="<%=dto.getModifiedBy()%>">
-<input type="hidden" name="createdDatetime"
-	value="<%=DataUtility.getTimestamp(dto.getCreatedDatetime())%>">
-<input type="hidden" name="modifiedDatetime"
-	value="<%=DataUtility.getTimestamp(dto.getModifiedDatetime())%>">
+						<input type="hidden" name="id" value="<%=dto.getId()%>"> <input
+							type="hidden" name="createdBy" value="<%=dto.getCreatedBy()%>">
+						<input type="hidden" name="modifiedBy"
+							value="<%=dto.getModifiedBy()%>"> <input type="hidden"
+							name="createdDatetime"
+							value="<%=DataUtility.getTimestamp(dto.getCreatedDatetime())%>">
+						<input type="hidden" name="modifiedDatetime"
+							value="<%=DataUtility.getTimestamp(dto.getModifiedDatetime())%>">
 
-<!-- Enrollment No -->
-<span><b>Enrollment No</b><span style="color:red">*</span></span>
-<input type="text" class="form-control" name="enrollmentNo"
-	placeholder="Enter Enrollment Number"
-	value="<%=DataUtility.getStringData(dto.getEnrollmentNo())%>">
-<font color="red">
-<%=ServletUtility.getErrorMessage("enrollmentNo", request)%>
-</font><br>
+						<!-- Enrollment No -->
+						<span><b>Enrollment No</b><span style="color: red">*</span></span>
+						<input type="text" class="form-control" name="enrollmentNo"
+							placeholder="Enter Enrollment Number"
+							value="<%=DataUtility.getStringData(dto.getEnrollmentNo())%>">
+						<font color="red"> <%=ServletUtility.getErrorMessage("enrollmentNo", request)%>
+						</font><br>
 
-<!-- Student Name -->
-<span><b>Student Name</b><span style="color:red">*</span></span>
-<input type="text" class="form-control" name="studentName"
-	placeholder="Enter Student Name"
-	value="<%=DataUtility.getStringData(dto.getStudentName())%>">
-<font color="red">
-<%=ServletUtility.getErrorMessage("studentName", request)%>
-</font><br>
+						<!-- Student Name -->
+						<span><b>Student Name</b><span style="color: red">*</span></span>
+						<input type="text" class="form-control" name="studentName"
+							placeholder="Enter Student Name"
+							value="<%=DataUtility.getStringData(dto.getStudentName())%>">
+						<font color="red"> <%=ServletUtility.getErrorMessage("studentName", request)%>
+						</font><br>
 
-<!-- Course -->
-<span><b>Course</b><span style="color:red">*</span></span>
-<input type="text" class="form-control" name="course"
-	placeholder="Enter Course"
-	value="<%=DataUtility.getStringData(dto.getCourse())%>">
-<font color="red">
-<%=ServletUtility.getErrorMessage("course", request)%>
-</font><br>
+						<!-- Course -->
+						<span><b>Course</b><span style="color: red">*</span></span> <input
+							type="text" class="form-control" name="course"
+							placeholder="Enter Course"
+							value="<%=DataUtility.getStringData(dto.getCourse())%>">
+						<font color="red"> <%=ServletUtility.getErrorMessage("course", request)%>
+						</font><br>
 
-<!-- Enrollment Date -->
-<span><b>Enrollment Date</b><span style="color:red">*</span></span>
-<input type="text" class="form-control" id="udate6"
-	name="enrollmentDate" readonly="readonly"
-	placeholder="Select Enrollment Date"
-	value="<%=DataUtility.getDateString(dto.getEnrollmentDate())%>">
-<font color="red">
-<%=ServletUtility.getErrorMessage("enrollmentDate", request)%>
-</font><br><br>
+						<!-- Enrollment Date -->
+						<span><b>Enrollment Date</b><span style="color: red">*</span></span>
+						<input type="text" class="form-control" id="udate6"
+							name="enrollmentDate" readonly="readonly"
+							placeholder="Select Enrollment Date"
+							value="<%=DataUtility.getDateString(dto.getEnrollmentDate())%>">
+						<font color="red"> <%=ServletUtility.getErrorMessage("enrollmentDate", request)%>
+						</font><br> <br>
 
-<%
-	if (id > 0) {
-%>
-<div class="text-center">
-	<input type="submit" name="operation"
-		class="btn btn-success"
-		value="<%=EnrollmentCtl.OP_UPDATE%>">
-	<input type="submit" name="operation"
-		class="btn btn-warning"
-		value="<%=EnrollmentCtl.OP_CANCEL%>">
-</div>
-<%
-	} else {
-%>
-<div class="text-center">
-	<input type="submit" name="operation"
-		class="btn btn-success"
-		value="<%=EnrollmentCtl.OP_SAVE%>">
-	<input type="submit" name="operation"
-		class="btn btn-warning"
-		value="<%=EnrollmentCtl.OP_RESET%>">
-</div>
-<%
-	}
-%>
+						<%
+							if (id > 0) {
+						%>
+						<div class="text-center">
+							<input type="submit" name="operation" class="btn btn-success"
+								value="<%=EnrollmentCtl.OP_UPDATE%>"> <input
+								type="submit" name="operation" class="btn btn-warning"
+								value="<%=EnrollmentCtl.OP_CANCEL%>">
+						</div>
+						<%
+							} else {
+						%>
+						<div class="text-center">
+							<input type="submit" name="operation" class="btn btn-success"
+								value="<%=EnrollmentCtl.OP_SAVE%>"> <input type="submit"
+								name="operation" class="btn btn-warning"
+								value="<%=EnrollmentCtl.OP_RESET%>">
+						</div>
+						<%
+							}
+						%>
 
-</div>
-</div>
+					</div>
+				</div>
 
-</div>
-<div class="col-md-4 mb-4"></div>
-</div>
+			</div>
+			<div class="col-md-4 mb-4"></div>
+		</div>
 
-</form>
-</main>
+	</form>
+	</main>
 
-<%@ include file="calendar.jsp" %>
-<%@include file="FooterView.jsp"%>
+	<%@ include file="calendar.jsp"%>
+	<%@include file="FooterView.jsp"%>
 
 </body>
 </html>
