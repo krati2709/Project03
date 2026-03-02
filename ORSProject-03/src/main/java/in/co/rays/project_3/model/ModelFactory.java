@@ -324,4 +324,16 @@ public final class ModelFactory {
 	    return eventRegistrationModel;
 	}
 	
+	public SupportTicketModelInt getSupportTicketModel() {
+	    SupportTicketModelInt supportTicketModel = (SupportTicketModelInt) modelCache.get("supportTicketModel");
+	    if (supportTicketModel == null) {
+	        if ("Hibernate".equals(DATABASE)) {
+	            supportTicketModel = new SupportTicketModelHibImpl();
+	        }
+	        if ("JDBC".equals(DATABASE)) {
+	        }
+	    }
+	    return supportTicketModel;
+	}
+	
 }

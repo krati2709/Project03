@@ -145,4 +145,9 @@ public interface ORSView {
 	public String EVENT_REGISTRATION_VIEW = PAGE_FOLDER + "/EventRegistrationView.jsp";
 	public String EVENT_REGISTRATION_LIST_VIEW = PAGE_FOLDER + "/EventRegistrationListView.jsp";
 	
+	public String SUPPORT_TICKET_CTL = APP_CONTEXT + "/ctl/SupportTicketCtl";
+	public String SUPPORT_TICKET_LIST_CTL = APP_CONTEXT + "/ctl/SupportTicketListCtl";
+	public String SUPPORT_TICKET_VIEW = PAGE_FOLDER + "/SupportTicketView.jsp";
+	public String SUPPORT_TICKET_LIST_VIEW = PAGE_FOLDER + "/SupportTicketListView.jsp";
+	
 }
