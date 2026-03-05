@@ -82,6 +82,8 @@
 			resource="in/co/rays/project_3/hbm/EventRegistrationDTO.hbm.xml" />
 		<mapping
 			resource="in/co/rays/project_3/hbm/SupportTicketDTO.hbm.xml" />
+		<mapping
+			resource="in/co/rays/project_3/hbm/EmiDTO.hbm.xml" />
 			
 			
 			

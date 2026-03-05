@@ -268,13 +268,17 @@
 						</a> <a class="dropdown-item"
 							href="<%=ORSView.EVENT_REGISTRATION_LIST_CTL%>"> <i
 							class="fa fa-sort-amount-down"></i> Event Registration List
-						</a>
-						<a class="dropdown-item"
-							href="<%=ORSView.SUPPORT_TICKET_CTL%>"> <i
-							class="fa fa-id-card"></i> Add Support Ticket
+						</a> <a class="dropdown-item" href="<%=ORSView.SUPPORT_TICKET_CTL%>">
+							<i class="fa fa-id-card"></i> Add Support Ticket
 						</a> <a class="dropdown-item"
 							href="<%=ORSView.SUPPORT_TICKET_LIST_CTL%>"> <i
 							class="fa fa-sort-amount-down"></i> Support Ticket List
+						</a>
+						<a class="dropdown-item" href="<%=ORSView.EMI_CTL%>">
+							<i class="fa fa-id-card"></i> Add EMI
+						</a> <a class="dropdown-item"
+							href="<%=ORSView.EMI_LIST_CTL%>"> <i
+							class="fa fa-sort-amount-down"></i> EMI List
 						</a>
 
 					</div></li>

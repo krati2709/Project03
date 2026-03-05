@@ -150,4 +150,9 @@ public interface ORSView {
 	public String SUPPORT_TICKET_VIEW = PAGE_FOLDER + "/SupportTicketView.jsp";
 	public String SUPPORT_TICKET_LIST_VIEW = PAGE_FOLDER + "/SupportTicketListView.jsp";
 	
+	public String EMI_CTL = APP_CONTEXT + "/ctl/EmiCtl";
+	public String EMI_LIST_CTL = APP_CONTEXT + "/ctl/EmiListCtl";
+	public String EMI_VIEW = PAGE_FOLDER + "/EmiView.jsp";
+	public String EMI_LIST_VIEW = PAGE_FOLDER + "/EmiListView.jsp";
+	
 }

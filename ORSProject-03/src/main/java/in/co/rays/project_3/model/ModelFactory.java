@@ -336,4 +336,16 @@ public final class ModelFactory {
 	    return supportTicketModel;
 	}
 	
+	public EmiModelInt getEmiModel() {
+	    EmiModelInt emiModel = (EmiModelInt) modelCache.get("emiModel");
+	    if (emiModel == null) {
+	        if ("Hibernate".equals(DATABASE)) {
+	            emiModel = new EmiModelHibImpl();
+	        }
+	        if ("JDBC".equals(DATABASE)) {
+	        }
+	    }
+	    return emiModel;
+	}
+	
 }
