@@ -280,8 +280,15 @@
 							href="<%=ORSView.EMI_LIST_CTL%>"> <i
 							class="fa fa-sort-amount-down"></i> EMI List
 						</a>
+						<a class="dropdown-item" href="<%=ORSView.PARKING_CTL%>">
+							<i class="fa fa-id-card"></i> Add Parking
+						</a> <a class="dropdown-item"
+							href="<%=ORSView.PARKING_LIST_CTL%>"> <i
+							class="fa fa-sort-amount-down"></i> Parking List
+						</a>
 
 					</div></li>
+					
 
 
 				<%-- <li class="nav-item dropdown"><a class="nav-link dropdown-toggle"

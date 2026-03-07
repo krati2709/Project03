@@ -155,4 +155,9 @@ public interface ORSView {
 	public String EMI_VIEW = PAGE_FOLDER + "/EmiView.jsp";
 	public String EMI_LIST_VIEW = PAGE_FOLDER + "/EmiListView.jsp";
 	
+	public String PARKING_CTL = APP_CONTEXT + "/ctl/ParkingCtl";
+	public String PARKING_LIST_CTL = APP_CONTEXT + "/ctl/ParkingListCtl";
+	public String PARKING_VIEW = PAGE_FOLDER + "/ParkingView.jsp";
+	public String PARKING_LIST_VIEW = PAGE_FOLDER + "/ParkingListView.jsp";
+	
 }

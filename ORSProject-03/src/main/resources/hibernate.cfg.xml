@@ -84,13 +84,11 @@
 			resource="in/co/rays/project_3/hbm/SupportTicketDTO.hbm.xml" />
 		<mapping
 			resource="in/co/rays/project_3/hbm/EmiDTO.hbm.xml" />
+		<mapping
+			resource="in/co/rays/project_3/hbm/ParkingDTO.hbm.xml" />
 			
 			
 			
-			
-			
-			
-
 
 
 	</session-factory>

@@ -348,4 +348,16 @@ public final class ModelFactory {
 	    return emiModel;
 	}
 	
+	public ParkingModelInt getParkingModel() {
+	    ParkingModelInt parkingModel = (ParkingModelInt) modelCache.get("parkingModel");
+	    if (parkingModel == null) {
+	        if ("Hibernate".equals(DATABASE)) {
+	            parkingModel = new ParkingModelHibImpl();
+	        }
+	        if ("JDBC".equals(DATABASE)) {
+	        }
+	    }
+	    return parkingModel;
+	}
+	
 }

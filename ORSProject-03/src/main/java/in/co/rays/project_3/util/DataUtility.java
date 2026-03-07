@@ -193,4 +193,20 @@ public class DataUtility {
 			return 0;
 		}
 	}
+	
+	/**
+	 * Converts String Into Double
+	 *
+	 * @param val :value
+	 * @return double
+	 */
+	public static double getDouble(String val) {
+	    try {
+	        if (DataValidator.isNotNull(val)) {
+	            return Double.parseDouble(val.trim());
+	        }
+	    } catch (Exception e) {
+	    }
+	    return 0;
+	}
 }
