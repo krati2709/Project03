@@ -286,6 +286,12 @@
 							href="<%=ORSView.PARKING_LIST_CTL%>"> <i
 							class="fa fa-sort-amount-down"></i> Parking List
 						</a>
+							<a class="dropdown-item" href="<%=ORSView.ASSET_CTL%>">
+							<i class="fa fa-id-card"></i> Add Asset
+						</a> <a class="dropdown-item"
+							href="<%=ORSView.ASSET_LIST_CTL%>"> <i
+							class="fa fa-sort-amount-down"></i> Asset List
+						</a>
 
 					</div></li>
 					

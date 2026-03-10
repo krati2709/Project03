@@ -360,4 +360,16 @@ public final class ModelFactory {
 	    return parkingModel;
 	}
 	
+	public AssetModelInt getAssetModel() {
+	    AssetModelInt assetModel = (AssetModelInt) modelCache.get("assetModel");
+	    if (assetModel == null) {
+	        if ("Hibernate".equals(DATABASE)) {
+	            assetModel = new AssetModelHibImpl();
+	        }
+	        if ("JDBC".equals(DATABASE)) {
+	        }
+	    }
+	    return assetModel;
+	}
+	
 }

@@ -160,4 +160,9 @@ public interface ORSView {
 	public String PARKING_VIEW = PAGE_FOLDER + "/ParkingView.jsp";
 	public String PARKING_LIST_VIEW = PAGE_FOLDER + "/ParkingListView.jsp";
 	
+	public String ASSET_CTL = APP_CONTEXT + "/ctl/AssetCtl";
+	public String ASSET_LIST_CTL = APP_CONTEXT + "/ctl/AssetListCtl";
+	public String ASSET_VIEW = PAGE_FOLDER + "/AssetView.jsp";
+	public String ASSET_LIST_VIEW = PAGE_FOLDER + "/AssetListView.jsp";
+	
 }

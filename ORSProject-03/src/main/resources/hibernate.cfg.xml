@@ -86,10 +86,9 @@
 			resource="in/co/rays/project_3/hbm/EmiDTO.hbm.xml" />
 		<mapping
 			resource="in/co/rays/project_3/hbm/ParkingDTO.hbm.xml" />
+		<mapping
+			resource="in/co/rays/project_3/hbm/AssetDTO.hbm.xml" />
 			
-			
-			
-
 
 	</session-factory>
 </hibernate-configuration>
